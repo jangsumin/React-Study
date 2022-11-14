@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  // babel 이라는 변환기를 사용해서 브라우저가 이해하지 못하는 JSX 문법을 JS로 변환해 줌.
+  const root = document.getElementById("root");
+  // createElement의 인자는 HTML 태그 이름과 같아야 함.
+  // const span = React.createElement(
+  //   "h3", 
+  //   { 
+  //     id: "sexy-span", 
+  //     onMouseEnter: () => console.log("mouse enter") 
+  //   }, 
+  //   "Hello I'm a span!"
+  //   );
+  const Title = () => <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title</h3>
+
+  // 하기와 같이 한 줄 안에 자바스크립트 코드가 4줄이나 들어가게 된다. props에 이벤트도 등록할 수 있음.
+  // const btn = React.createElement(
+  //   "button", 
+  //   {
+  //   onClick: () => console.log("i'm clicked")
+  //   }, 
+  //   "Click me"
+  // );
+  const Btn = () => <button style={{backgroundColor: "tomato"}} onClick={() => console.log("i'm clicked")}>Click me</button>
+
+  // const container = React.createElement("div", null, [span, btn]);
+  const Container = () => (
+    // 컴포넌트의 첫 글자는 무조건 대문자
+    // 만약 소문자면 React와 JSX는 HTML 태그처럼 인식함.
+    <div>
+      <Title />
+      <Btn />
+    </div>
+  );
+  ReactDOM.render(<Container />, root);
+</script>
+</html>
