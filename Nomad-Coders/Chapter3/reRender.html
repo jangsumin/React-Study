@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  const root = document.querySelector("#root");
+  let counter = 0;
+  function countUp() {
+    counter += 1;
+    render();
+  }
+  function render() {
+    ReactDOM.render(<Container />, root);
+  }
+  function Container() {
+    return (
+      <div>
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={countUp}>Click me</button>
+      </div>
+    );
+  }
+  // 아래 코드는 처음에 한 번 실행되므로 counter가 화면에서는 0으로밖에 표시되지 않음.
+  render();
+  // vanillaJS는 바뀐 HTML 태그 전부를 바꾸지만, ReactJS는 UI에서 변화한 부분만 바꿔 줌.
+</script>
+</html>
