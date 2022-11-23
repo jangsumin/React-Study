@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    const domContainer = document.querySelector('#root');
+    const root = ReactDOM.createRoot(domContainer);
+    
+    function Welcome(props) {
+      return (
+        <div>
+          <h1>hello, {props.name}</h1>
+        </div>
+      );
+    }
+
+    const element = <Welcome name="Jang" />
+    root.render(element);
+  </script>
+</body>
+</html>

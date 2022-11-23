@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<body>
+  <div id="root"></div>
+  <!-- CDN 링크 추가 -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+  <!-- 내가 만든 컴포넌트 추가 -->
+  <!-- JSX 안쓸 때는 createElement도 vanilla JS가 아닌 ReactJS의 것을 사용해야 한다. -->
+  <script>
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    const h1 = React.createElement('h1', null, "the most simple way to use ReactJS");
+    root.render(h1);
+  </script>
+</body>
+</html>
