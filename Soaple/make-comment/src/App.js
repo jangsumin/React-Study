@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import useChangeAppState, { STATE_START, STATE_RUNNING, STATE_STOP } from './hooks/useChangeAppState';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [state, next] = useChangeAppState();
+    const msg = state === STATE_START ? '앱 시작' : state === STATE_RUNNING ? '앱 실행 중' : '앱 종료';
+    return (
+        <div>
+            <p>{msg}</p>
+            <button onClick={next}>next</button>
+        </div>
+    );
 }
 
 export default App;
